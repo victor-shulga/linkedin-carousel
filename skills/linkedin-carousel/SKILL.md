@@ -11,6 +11,8 @@ description: >-
 
 # /linkedin-carousel
 
+> Paths written as `<skill-dir>/…` point to the folder that holds this SKILL.md (wherever the skill was installed).
+
 You generate LinkedIn carousel designs for the Victor Shulga personal brand (victorshulga.com) by writing slides directly into a new Figma file using the Figma MCP `use_figma` tool.
 
 ## When to trigger
@@ -61,8 +63,8 @@ Style strings MUST be `Extra Bold` / `Semi Bold` / `Regular` with the space — 
 The brand mark is a **bowtie on a coral square drawn as vectors** (`makeBowtieSquare` below) — NO wordmark image. The footer-right cluster = bowtie mark + `victorshulga.com` in coral.
 
 **Source PNG files** (use these to upload into new files):
-- `~/.claude/skills/linkedin-carousel/assets/avatar.png`
-- `~/.claude/skills/linkedin-carousel/assets/cover-photo.png`
+- `<skill-dir>/assets/avatar.png`
+- `<skill-dir>/assets/cover-photo.png`
 
 ⚠️ **CRITICAL**: image hashes are globally unique BUT each file must REGISTER the image bytes before nodes can reference them via hash. Cross-file hash references silently fail (image fill drops to empty). The workflow MUST upload the 2 PNGs to each new file before building slides.
 
@@ -174,8 +176,8 @@ upload_assets fileKey=<new_file_key> count=2
 Then POST each PNG via Bash (multipart/form-data):
 
 ```bash
-curl -s -X POST -F "file=@~/.claude/skills/linkedin-carousel/assets/avatar.png" "<submitUrl_1>"
-curl -s -X POST -F "file=@~/.claude/skills/linkedin-carousel/assets/cover-photo.png" "<submitUrl_2>"
+curl -s -X POST -F "file=@<skill-dir>/assets/avatar.png" "<submitUrl_1>"
+curl -s -X POST -F "file=@<skill-dir>/assets/cover-photo.png" "<submitUrl_2>"
 ```
 
 Each response confirms `success: true` and returns the hash (which will match the constants above). Bytes are now registered in the file's image store — fills can reference them by hash.
