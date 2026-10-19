@@ -39,3 +39,7 @@ brand, swap the files in `skills/linkedin-carousel/assets/` and the Brand block 
 ## License
 
 MIT
+
+---
+
+Built by [Victor Shulga](https://victorshulga.com), Fractional CRO for B2B service companies. Full skill stack: [victorshulga.com/stack](https://victorshulga.com/stack/).
